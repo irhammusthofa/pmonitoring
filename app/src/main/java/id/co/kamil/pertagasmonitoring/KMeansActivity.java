@@ -11,9 +11,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -55,6 +57,11 @@ public class KMeansActivity extends AppCompatActivity {
     private DatePickerDialog picker;
     private String token;
     private List<KMeans> dataKmeans = new ArrayList<>();
+    private List<KMeans> tempKmeans = new ArrayList<>();
+    private List<KMeans> searchKmeans = new ArrayList<>();
+    private Spinner spinFilter;
+    private String[] dataFilter = new String[]{"Semua","C1","C2","C3"};
+    private KMeansAdapter kmeansAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,7 @@ public class KMeansActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listView = (ListView) findViewById(R.id.listView);
+        spinFilter = (Spinner) findViewById(R.id.spinFilter);
         pDialog = new ProgressDialog(this);
         session = new SessionManager(this);
         userDetail = session.getUserDetails();
@@ -96,6 +104,41 @@ public class KMeansActivity extends AppCompatActivity {
 
         token = userDetail.get(KEY_TOKEN);
 
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,dataFilter);
+        spinFilter.setAdapter(arrayAdapter);
+
+        spinFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                searchKmeans.clear();
+                for (int i=0;i<tempKmeans.size();i++){
+                    if (position==0){
+                        searchKmeans.add(tempKmeans.get(i));
+                    }else if (position==1) {
+                        if (tempKmeans.get(i).getCluster().equals("Cluster 1")){
+                            searchKmeans.add(tempKmeans.get(i));
+                        }
+                    }else if (position==2) {
+                        if (tempKmeans.get(i).getCluster().equals("Cluster 2")){
+                            searchKmeans.add(tempKmeans.get(i));
+                        }
+                    }else if (position==3) {
+                        if (tempKmeans.get(i).getCluster().equals("Cluster 3")){
+                            searchKmeans.add(tempKmeans.get(i));
+                        }
+                    }
+                }
+                dataKmeans = searchKmeans;
+                if (kmeansAdapter!=null){
+                    kmeansAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         loadData();
     }
     private void goToLogin() {
@@ -112,7 +155,7 @@ public class KMeansActivity extends AppCompatActivity {
     }
     private void loadData() {
         dataKmeans.clear();
-
+        tempKmeans.clear();
         RequestQueue queue = Volley.newRequestQueue(this);
         final String uri = Uri.parse("https://pmonitoring.kamil.co.id/cluster")
                 .buildUpon()
@@ -145,6 +188,7 @@ public class KMeansActivity extends AppCompatActivity {
                             item.setCluster(cluster);
                             item.setStatus(status_cluster);
                             dataKmeans.add(item);
+                            tempKmeans.add(item);
                         }
 
                         displayList();
@@ -190,7 +234,7 @@ public class KMeansActivity extends AppCompatActivity {
     }
 
     private void displayList() {
-        final KMeansAdapter adapter = new KMeansAdapter(this,R.layout.item_list_cluster,dataKmeans);
-        listView.setAdapter(adapter);
+        kmeansAdapter = new KMeansAdapter(this,R.layout.item_list_cluster,dataKmeans);
+        listView.setAdapter(kmeansAdapter);
     }
 }
