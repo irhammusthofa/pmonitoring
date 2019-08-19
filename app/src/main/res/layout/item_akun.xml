@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/itemUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Username"/>
+    <TextView
+        android:id="@+id/itemWilayah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wilayah"/>
+    <TextView
+        android:id="@+id/itemPerusahaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Perusahaan"/>
+</LinearLayout>

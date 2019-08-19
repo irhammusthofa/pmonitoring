@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/namaWilayah"
+        android:text="North"
+        android:textSize="16sp"
+        android:padding="4dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:padding="4dp"
+        android:visibility="gone"
+        android:text="Y : Shipper, X1 = Single Offtaker, X2 = Multi Offtaker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Model"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="B"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="Std. Error"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Constant"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/bY"
+            android:text="B"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/errY"
+            android:text="Std. Error"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Single (X1)"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/bX1"
+            android:text="B"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/errX1"
+            android:text="Std. Error"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Multi (X1)"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/bX2"
+            android:text="B"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/errX2"
+            android:text="Std. Error"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/bY2"
+            android:visibility="gone"
+            android:text="B"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/rSquare"
+            android:padding="4dp"
+            android:text="RSquare : "
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnDetail"
+            android:text="Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+        <Button
+            android:id="@+id/btnPrediksi"
+            android:text="Prediksi"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/txtBarrel"
+            android:visibility="gone"
+            android:padding="4dp"
+            android:gravity="right"
+            android:text="RSquare : "
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

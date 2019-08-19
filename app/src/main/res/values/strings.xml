@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pertagas Monitoring</string>
+    <string name="toast_no_internet">Tidak ada koneksi Internet</string>
+    <string name="toast_network_error">Periksa kembali koneksi internet anda</string>
+    <string name="toast_server_error">Server sedang diperbaiki, mohon maaf atas ketidak nyamanannya</string>
+    <string name="toast_timeout">Timeout. Silakan coba beberapa saat lagi</string>
+    <string name="toast_terjadi_kesalahan">Terjadi kesalahan, silakan coba beberapa saat lagi. Kemungkinan kesalahan dari server atau sesi anda telah habis. Jika masih bermasalah silahkan keluar kemudian login kembali</string>
+    <string name="toast_session_habis">Session akun habis, silahkan login kembali</string>
+
+</resources>
